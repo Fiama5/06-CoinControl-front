@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
-import { Router } from '@angular/router'; //importacion para poder utilizar el routing
+import { Router } from '@angular/router'; 
 import { User } from 'src/app/model/user';
 
 
@@ -10,6 +10,8 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+  //Inicializamos la interfdz
   user: User = {
     id: 0,
     username: '',

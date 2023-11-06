@@ -11,6 +11,7 @@ export class PredefinedfundService {
 
   constructor(private http: HttpClient) { }
 
+  //Metodo para obtener todos los fondos predefinidos
   getPredefinedFund(): Observable<PredefinedFund[]> {
     return this.http.get<PredefinedFund[]>(`${this.baseUrl}/all`);
   }

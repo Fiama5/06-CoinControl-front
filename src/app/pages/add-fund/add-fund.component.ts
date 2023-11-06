@@ -61,15 +61,16 @@ export class AddFundComponent implements OnInit {
         email: ''
       };
     } else {
-      // Manejar el escenario donde userId es null, si es necesario
+      
     }
   }
 
 
   submitForm(){
     const predefindfundId = this.selectPredefinedFund;   // Se obtiene el id del fondo predefinido obtenido en la lista desplegable
-  
+  //Se utiliza un console.log para ver los datos que se envian y corregir erroes si los hubiese
     console.log('Datos a enviar: ', this.funds)
+    //Se manda el fondo al servicio para que se registre en la base de datos, se envia el fondo y el id del fondo predefinido seleccionado por el usuario
     this.fundsService.addFund(this.funds, predefindfundId).subscribe(()=>{
       this.funds= {
         id: 0,

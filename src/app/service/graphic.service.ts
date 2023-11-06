@@ -26,7 +26,6 @@ export class GraphicService {
 
   loadExpensesByCategory(userId: number, categoryId: number): void {
     this.expenseService.getExpensesByUserAndCategory(userId, categoryId).subscribe((expenses) => {
-      // Aquí puedes hacer lo que necesites con los gastos por categoría, como procesarlos o crear gráficos
     });
   }
 }

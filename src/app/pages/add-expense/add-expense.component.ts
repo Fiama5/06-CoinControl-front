@@ -83,11 +83,12 @@ export class AddExpenseComponent implements OnInit {
       // Llamar al servicio de fondos para obtener los fondos del usuario
       this.fundsService.getFundsByUserId(userId).subscribe(
         (funds: Funds[]) => {
-          // Manejar los fondos obtenidos aquí
+          // Manejo de fondos obetenidos
           console.log('Fondos del usuario:', funds);
           this.fundsList = funds;
         },
         error => {
+          //Manejo de errores
           console.error('Error al obtener los fondos del usuario:', error);
         }
       );
@@ -100,7 +101,7 @@ export class AddExpenseComponent implements OnInit {
   }
 
 
-
+  //Metodo para envio del formulario y poder usar el servicio de addexpense
   submitForm() {
     const categoryId = this.selectedCategoryId; // Se obtiene el categoryId de la lista desplegable
     const fundsId = Number(this.selectedFundsId);  // Se obtiene el fundsId de la lista desplegable

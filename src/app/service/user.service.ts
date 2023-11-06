@@ -11,6 +11,7 @@ export class UserService {
 
   constructor( private http: HttpClient) { }
 
+  //Metodo para realizar un registro
   singUpUser(user: User){
 
     const url = `${this.baseUrl}/add`

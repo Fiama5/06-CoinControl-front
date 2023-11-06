@@ -91,26 +91,38 @@ export class AllExpensesComponent {
 
 
   //Metodo para traer el total de la categoria
+  //Se define el nomnbre de la funcion
   getSumOfExpensesByCategoryForUser() {
+    //Se utiliza el servicio para desde el servicio obtenr el metodo donde esta guardado el id del usuario y se le asigna a la variable "userId"
     const userId = this.authService.getUserIdFromLocalStorage();
+    //Se comprueba que userId no sea nulo
     if (userId !== null) {
+      //Si user id no es nulo, se llama al servicio para obtener el metodo getSumOfExpensesByCategory que se le pasa por parametros el userid
+      //Se suscribe  a la respuesta
+      //El código dentro de esta función flecha (=>) se ejecuta cuando se recibe la respuesta del servidor.
       this.expenseService.getSumOfExpensesByCategory(userId).subscribe((categoryTotals: Map<string, number> | any) => {
         if (categoryTotals instanceof Map) {
+          //Verifica si la respuesta es de tipo Map. Si lo es, itera sobre la respuesta y la asigna a 
+          //this.categoryTotalExpenses como un objeto donde las claves son las categorías y los valores son los totales de gastos para cada categoría.
           this.categoryTotalExpenses = {};
           categoryTotals.forEach((value, key) => {
             this.categoryTotalExpenses[key] = value;
           });
+          //En caso de que la respuesta sea un objeto y no sea null, se asigna directamente a this.categoryTotalExpenses.
         } else if (typeof categoryTotals === 'object' && categoryTotals !== null) {
           this.categoryTotalExpenses = categoryTotals;
         } else {
+          //Si la respuesta no es un Map ni un objeto válido, se imprime un mensaje de error indicando que los datos recibidos no son válidos.
           console.error('Los datos recibidos no son un objeto válido.');
         }
       });
+      //Si userId es nulo imprime un error por consola con el mensaje 
     } else {
       console.error('userID es nulo.');
     }
 
-
-
   }
+
+
+
 }

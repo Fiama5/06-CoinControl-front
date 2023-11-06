@@ -1,6 +1,7 @@
 <div class="container">
   <h2>Agregar Gasto</h2>
   <form (submit)="submitForm()">
+    <!-- Se activa la funcion submitForm al enviar el formulario -->
     <div class="form-group">
       <label for="monto">Monto:</label>
       <input type="number" id="monto" [(ngModel)]="expense.amount" name="amount" class="form-control" required>
